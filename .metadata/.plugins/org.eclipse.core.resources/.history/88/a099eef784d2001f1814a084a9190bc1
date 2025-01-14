@@ -1,0 +1,8 @@
+
+server.port=8080
+spring.application.name=blog-application
+
+# Configurazione del database MySQL
+spring.datasource.url=jdbc:mysql://localhost:3306/blog
+spring.datasource.username=root
+spring.datasource.password=root

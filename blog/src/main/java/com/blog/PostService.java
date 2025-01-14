@@ -1,0 +1,30 @@
+package com.blog;
+import org.springframework.stereotype.Service;
+
+import java.util.List;
+
+@Service
+public class PostService {
+
+    private final PostRepository postRepository;
+    private final PostJdbcRepository postJdbcRepository;
+
+    public PostService(PostRepository postRepository, PostJdbcRepository postJdbcRepository) {
+        this.postRepository = postRepository;
+        this.postJdbcRepository = postJdbcRepository;
+    }
+
+    public List<Post> getAllPosts() {
+        return postRepository.findAll();
+    }
+
+    public Post savePost(Post post) {
+        return postRepository.save(post);
+    }
+    public Post getPostById(Long id) {
+        return postRepository.findById(id).orElse(null);
+    }
+    public void deletePost(Post post) {
+        postRepository.deleteById(post.getId());
+    }
+}
